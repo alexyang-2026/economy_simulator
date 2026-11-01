@@ -1,4 +1,25 @@
+# Python
 .venv/
 __pycache__/
 *.py[cod]
 .env
+
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.run.xml
+*.bcf
+*.nav
+*.snm
+*.vrb
+
+# LaTeX temporary directories
+_minted*/

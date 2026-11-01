@@ -1,0 +1,71 @@
+
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{
+    \textbf{Economy Simulator}\\
+    \large Mathematical Models and Algorithms
+}
+
+\author{Alex Yang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Project Overview}
+
+\subsection{Mathematical Objectives}
+
+\section{Crafting and Production Model}
+
+\subsection{Mathematical Definitions}
+
+\subsection{Construction of the Consumption Matrix}
+
+The purpose of the consumption matrix $C$ is to represent the quantities of items required to execute each crafting recipe.
+
+Let $n$ denote the total number of items supported by the game, and let $m$ denote the total number of crafting recipes. The consumption matrix is therefore defined as
+$C \in \mathbb{Z}_{\geq 0}^{n \times m}.$
+
+Each row $i$, where $1 \leq i \leq n$, represents an item, while each column $j$, where $1 \leq j \leq m$, represents a crafting recipe.
+
+Thus, the entry $C_{ij}$ specifies the quantity of the $i$th item consumed when executing the $j$th recipe once. If the recipe does not require that item, then $C_{ij}=0$.
+
+
+\subsection{Construction of the Production Matrix}
+Similar to the consumption matrix, the production matrix $B$'s purpose is to represent the quantities of items produced after executing each crafting recipe.
+$B$ has the same dimensions as $C$, because the rows and columns represent the same items and recipes as $C$, except the entries may be different because $B$ catalogues the number of item outputs
+whereas $C$ catalogues the number of item inputs.
+
+Therefore, $B \in \mathbb{Z}_{\geq 0}^{n \times m}$, where the entry $B_{ij}$ specifies the quantity of the $i$th item produced when executing the $j$th recipe once.
+If the recipe does not produce that item, then $B_{ij} = 0$.
+
+
+
+\end{document}

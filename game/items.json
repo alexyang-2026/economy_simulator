@@ -1,0 +1,238 @@
+{
+  "oak_log": {
+    "name": "Oak Log",
+    "category": "wood"
+  },
+  "pine_log": {
+    "name": "Pine Log",
+    "category": "wood"
+  },
+  "birch_log": {
+    "name": "Birch Log",
+    "category": "wood"
+  },
+  "stone": {
+    "name": "Stone",
+    "category": "mineral"
+  },
+  "coal": {
+    "name": "Coal",
+    "category": "mineral"
+  },
+  "clay": {
+    "name": "Clay",
+    "category": "mineral"
+  },
+  "sand": {
+    "name": "Sand",
+    "category": "mineral"
+  },
+  "limestone": {
+    "name": "Limestone",
+    "category": "mineral"
+  },
+  "quartz": {
+    "name": "Quartz",
+    "category": "mineral"
+  },
+  "iron_ore": {
+    "name": "Iron Ore",
+    "category": "ore"
+  },
+  "copper_ore": {
+    "name": "Copper Ore",
+    "category": "ore"
+  },
+  "gold_ore": {
+    "name": "Gold Ore",
+    "category": "ore"
+  },
+  "silver_ore": {
+    "name": "Silver Ore",
+    "category": "ore"
+  },
+  "tin_ore": {
+    "name": "Tin Ore",
+    "category": "ore"
+  },
+  "bauxite": {
+    "name": "Bauxite",
+    "category": "ore"
+  },
+  "diamond": {
+    "name": "Diamond",
+    "category": "gemstone"
+  },
+  "emerald": {
+    "name": "Emerald",
+    "category": "gemstone"
+  },
+  "ruby": {
+    "name": "Ruby",
+    "category": "gemstone"
+  },
+  "wheat": {
+    "name": "Wheat",
+    "category": "crop"
+  },
+  "cotton": {
+    "name": "Cotton",
+    "category": "crop"
+  },
+  "rubber_latex": {
+    "name": "Rubber Latex",
+    "category": "plant_material"
+  },
+  "crude_oil": {
+    "name": "Crude Oil",
+    "category": "energy_resource"
+  },
+  "oak_plank": {
+    "name": "Oak Plank",
+    "category": "refined_material"
+  },
+  "pine_plank": {
+    "name": "Pine Plank",
+    "category": "refined_material"
+  },
+  "iron_ingot": {
+    "name": "Iron Ingot",
+    "category": "refined_material"
+  },
+  "copper_ingot": {
+    "name": "Copper Ingot",
+    "category": "refined_material"
+  },
+  "gold_ingot": {
+    "name": "Gold Ingot",
+    "category": "refined_material"
+  },
+  "silver_ingot": {
+    "name": "Silver Ingot",
+    "category": "refined_material"
+  },
+  "tin_ingot": {
+    "name": "Tin Ingot",
+    "category": "refined_material"
+  },
+  "aluminum_ingot": {
+    "name": "Aluminum Ingot",
+    "category": "refined_material"
+  },
+  "steel": {
+    "name": "Steel",
+    "category": "refined_material"
+  },
+  "bronze_ingot": {
+    "name": "Bronze Ingot",
+    "category": "refined_material"
+  },
+  "glass": {
+    "name": "Glass",
+    "category": "refined_material"
+  },
+  "silicon": {
+    "name": "Silicon",
+    "category": "refined_material"
+  },
+  "plastic": {
+    "name": "Plastic",
+    "category": "refined_material"
+  },
+  "rubber": {
+    "name": "Rubber",
+    "category": "refined_material"
+  },
+  "fabric": {
+    "name": "Fabric",
+    "category": "refined_material"
+  },
+  "paper": {
+    "name": "Paper",
+    "category": "refined_material"
+  },
+  "cement": {
+    "name": "Cement",
+    "category": "refined_material"
+  },
+  "copper_wire": {
+    "name": "Copper Wire",
+    "category": "component"
+  },
+  "steel_plate": {
+    "name": "Steel Plate",
+    "category": "component"
+  },
+  "metal_gear": {
+    "name": "Metal Gear",
+    "category": "component"
+  },
+  "glass_panel": {
+    "name": "Glass Panel",
+    "category": "component"
+  },
+  "circuit_board": {
+    "name": "Circuit Board",
+    "category": "component"
+  },
+  "microchip": {
+    "name": "Microchip",
+    "category": "component"
+  },
+  "battery": {
+    "name": "Battery",
+    "category": "component"
+  },
+  "electric_motor": {
+    "name": "Electric Motor",
+    "category": "component"
+  },
+  "screen": {
+    "name": "Screen",
+    "category": "component"
+  },
+  "sensor": {
+    "name": "Sensor",
+    "category": "component"
+  },
+  "solar_cell": {
+    "name": "Solar Cell",
+    "category": "component"
+  },
+  "wooden_chest": {
+    "name": "Wooden Chest",
+    "category": "finished_product"
+  },
+  "iron_pickaxe": {
+    "name": "Iron Pickaxe",
+    "category": "finished_product"
+  },
+  "electric_lamp": {
+    "name": "Electric Lamp",
+    "category": "finished_product"
+  },
+  "radio": {
+    "name": "Radio",
+    "category": "finished_product"
+  },
+  "smartphone": {
+    "name": "Smartphone",
+    "category": "finished_product"
+  },
+  "laptop": {
+    "name": "Laptop",
+    "category": "finished_product"
+  },
+  "drone": {
+    "name": "Drone",
+    "category": "finished_product"
+  },
+  "robot": {
+    "name": "Robot",
+    "category": "finished_product"
+  },
+  "solar_panel": {
+    "name": "Solar Panel",
+    "category": "finished_product"
+  }
+}

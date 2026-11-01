@@ -1,0 +1,388 @@
+{
+  "saw_oak": {
+    "name": "Saw Oak Logs",
+    "inputs": {
+      "oak_log": 1
+    },
+    "outputs": {
+      "oak_plank": 4
+    }
+  },
+  "saw_pine": {
+    "name": "Saw Pine Logs",
+    "inputs": {
+      "pine_log": 1
+    },
+    "outputs": {
+      "pine_plank": 4
+    }
+  },
+  "smelt_iron": {
+    "name": "Smelt Iron",
+    "inputs": {
+      "iron_ore": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "iron_ingot": 2
+    }
+  },
+  "smelt_copper": {
+    "name": "Smelt Copper",
+    "inputs": {
+      "copper_ore": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "copper_ingot": 2
+    }
+  },
+  "smelt_tin": {
+    "name": "Smelt Tin",
+    "inputs": {
+      "tin_ore": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "tin_ingot": 2
+    }
+  },
+  "smelt_gold": {
+    "name": "Smelt Gold",
+    "inputs": {
+      "gold_ore": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "gold_ingot": 2
+    }
+  },
+  "smelt_silver": {
+    "name": "Smelt Silver",
+    "inputs": {
+      "silver_ore": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "silver_ingot": 2
+    }
+  },
+  "smelt_aluminum": {
+    "name": "Smelt Aluminum",
+    "inputs": {
+      "bauxite": 3,
+      "coal": 2
+    },
+    "outputs": {
+      "aluminum_ingot": 2
+    }
+  },
+  "make_steel": {
+    "name": "Produce Steel",
+    "inputs": {
+      "iron_ingot": 3,
+      "coal": 1
+    },
+    "outputs": {
+      "steel": 3
+    }
+  },
+  "make_bronze": {
+    "name": "Produce Bronze",
+    "inputs": {
+      "copper_ingot": 3,
+      "tin_ingot": 1
+    },
+    "outputs": {
+      "bronze_ingot": 4
+    }
+  },
+  "make_glass": {
+    "name": "Produce Glass",
+    "inputs": {
+      "sand": 3,
+      "coal": 1
+    },
+    "outputs": {
+      "glass": 2
+    }
+  },
+  "refine_silicon": {
+    "name": "Refine Silicon",
+    "inputs": {
+      "quartz": 2,
+      "coal": 1
+    },
+    "outputs": {
+      "silicon": 1
+    }
+  },
+  "refine_plastic": {
+    "name": "Produce Plastic",
+    "inputs": {
+      "crude_oil": 2
+    },
+    "outputs": {
+      "plastic": 3
+    }
+  },
+  "process_rubber": {
+    "name": "Process Rubber",
+    "inputs": {
+      "rubber_latex": 2
+    },
+    "outputs": {
+      "rubber": 2
+    }
+  },
+  "weave_fabric": {
+    "name": "Weave Fabric",
+    "inputs": {
+      "cotton": 3
+    },
+    "outputs": {
+      "fabric": 2
+    }
+  },
+  "make_paper": {
+    "name": "Produce Paper",
+    "inputs": {
+      "oak_log": 1
+    },
+    "outputs": {
+      "paper": 3
+    }
+  },
+  "make_cement": {
+    "name": "Produce Cement",
+    "inputs": {
+      "limestone": 2,
+      "clay": 1,
+      "coal": 1
+    },
+    "outputs": {
+      "cement": 2
+    }
+  },
+  "draw_copper_wire": {
+    "name": "Draw Copper Wire",
+    "inputs": {
+      "copper_ingot": 1
+    },
+    "outputs": {
+      "copper_wire": 4
+    }
+  },
+  "press_steel_plate": {
+    "name": "Press Steel Plates",
+    "inputs": {
+      "steel": 2
+    },
+    "outputs": {
+      "steel_plate": 2
+    }
+  },
+  "forge_gear": {
+    "name": "Forge Metal Gear",
+    "inputs": {
+      "steel": 2
+    },
+    "outputs": {
+      "metal_gear": 1
+    }
+  },
+  "make_glass_panel": {
+    "name": "Produce Glass Panel",
+    "inputs": {
+      "glass": 2
+    },
+    "outputs": {
+      "glass_panel": 1
+    }
+  },
+  "assemble_circuit_board": {
+    "name": "Assemble Circuit Board",
+    "inputs": {
+      "copper_wire": 3,
+      "plastic": 2,
+      "silicon": 1
+    },
+    "outputs": {
+      "circuit_board": 1
+    }
+  },
+  "fabricate_microchip": {
+    "name": "Fabricate Microchip",
+    "inputs": {
+      "silicon": 2,
+      "copper_wire": 1,
+      "gold_ingot": 1
+    },
+    "outputs": {
+      "microchip": 2
+    }
+  },
+  "assemble_battery": {
+    "name": "Assemble Battery",
+    "inputs": {
+      "copper_ingot": 1,
+      "aluminum_ingot": 1,
+      "plastic": 1
+    },
+    "outputs": {
+      "battery": 1
+    }
+  },
+  "assemble_motor": {
+    "name": "Assemble Electric Motor",
+    "inputs": {
+      "copper_wire": 4,
+      "steel": 2,
+      "metal_gear": 1
+    },
+    "outputs": {
+      "electric_motor": 1
+    }
+  },
+  "assemble_screen": {
+    "name": "Assemble Screen",
+    "inputs": {
+      "glass_panel": 1,
+      "circuit_board": 1,
+      "plastic": 1
+    },
+    "outputs": {
+      "screen": 1
+    }
+  },
+  "assemble_sensor": {
+    "name": "Assemble Sensor",
+    "inputs": {
+      "microchip": 1,
+      "copper_wire": 2,
+      "glass": 1
+    },
+    "outputs": {
+      "sensor": 1
+    }
+  },
+  "fabricate_solar_cell": {
+    "name": "Fabricate Solar Cell",
+    "inputs": {
+      "silicon": 2,
+      "copper_wire": 2,
+      "glass": 1
+    },
+    "outputs": {
+      "solar_cell": 1
+    }
+  },
+  "craft_chest": {
+    "name": "Craft Wooden Chest",
+    "inputs": {
+      "oak_plank": 6,
+      "iron_ingot": 1
+    },
+    "outputs": {
+      "wooden_chest": 1
+    }
+  },
+  "craft_pickaxe": {
+    "name": "Craft Iron Pickaxe",
+    "inputs": {
+      "iron_ingot": 3,
+      "oak_plank": 2
+    },
+    "outputs": {
+      "iron_pickaxe": 1
+    }
+  },
+  "assemble_lamp": {
+    "name": "Assemble Electric Lamp",
+    "inputs": {
+      "glass": 1,
+      "copper_wire": 2,
+      "circuit_board": 1
+    },
+    "outputs": {
+      "electric_lamp": 1
+    }
+  },
+  "assemble_radio": {
+    "name": "Assemble Radio",
+    "inputs": {
+      "circuit_board": 1,
+      "copper_wire": 2,
+      "plastic": 2,
+      "battery": 1
+    },
+    "outputs": {
+      "radio": 1
+    }
+  },
+  "assemble_smartphone": {
+    "name": "Assemble Smartphone",
+    "inputs": {
+      "microchip": 2,
+      "screen": 1,
+      "battery": 1,
+      "circuit_board": 1,
+      "plastic": 2
+    },
+    "outputs": {
+      "smartphone": 1
+    }
+  },
+  "assemble_laptop": {
+    "name": "Assemble Laptop",
+    "inputs": {
+      "microchip": 3,
+      "screen": 1,
+      "battery": 2,
+      "circuit_board": 2,
+      "aluminum_ingot": 2
+    },
+    "outputs": {
+      "laptop": 1
+    }
+  },
+  "assemble_drone": {
+    "name": "Assemble Drone",
+    "inputs": {
+      "electric_motor": 4,
+      "battery": 2,
+      "circuit_board": 1,
+      "sensor": 2,
+      "plastic": 3
+    },
+    "outputs": {
+      "drone": 1
+    }
+  },
+  "assemble_robot": {
+    "name": "Assemble Robot",
+    "inputs": {
+      "electric_motor": 3,
+      "sensor": 3,
+      "microchip": 2,
+      "battery": 2,
+      "steel_plate": 4,
+      "metal_gear": 2
+    },
+    "outputs": {
+      "robot": 1
+    }
+  },
+  "assemble_solar_panel": {
+    "name": "Assemble Solar Panel",
+    "inputs": {
+      "solar_cell": 4,
+      "glass_panel": 2,
+      "aluminum_ingot": 2,
+      "copper_wire": 2
+    },
+    "outputs": {
+      "solar_panel": 1
+    }
+  }
+}
