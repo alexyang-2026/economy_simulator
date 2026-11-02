@@ -21,5 +21,12 @@ __pycache__/
 *.snm
 *.vrb
 
+# Database
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
 # LaTeX temporary directories
 _minted*/
