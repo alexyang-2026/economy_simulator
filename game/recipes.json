@@ -384,5 +384,25 @@
     "outputs": {
       "solar_panel": 1
     }
+  },
+  "craft_hatchet": {
+    "name": "Craft Hatchet",
+    "inputs": {
+      "oak_plank": 2,
+      "iron_ingot": 1
+    },
+    "outputs": {
+      "hatchet": 1
+    }
+  },
+  "craft_steel_axe": {
+    "name": "Craft Steel Axe",
+    "inputs": {
+      "oak_plank": 2,
+      "steel": 3
+    },
+    "outputs": {
+      "steel_axe": 1
+    }
   }
 }

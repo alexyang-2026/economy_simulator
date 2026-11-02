@@ -234,5 +234,16 @@
   "solar_panel": {
     "name": "Solar Panel",
     "category": "finished_product"
+  },
+
+
+  "hatchet": {
+    "name": "Hatchet",
+    "category": "finished_product"
+  },
+  "steel_axe": {
+    "name": "Steel Axe",
+    "category": "finished_product"
   }
+
 }
