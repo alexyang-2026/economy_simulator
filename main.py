@@ -1,4 +1,6 @@
 from database import *
+from markets import *
+import time
 
 def main():
     initialize_database()
@@ -13,4 +15,9 @@ def main():
         conn.close()
 
 if __name__ == "__main__":
-    main()
+    current_state = 2
+    next_update = schedule_next_market_update()
+
+    while True:
+        current_state, next_update = process_market_updates(current_state, next_update)
+        time.sleep(1)

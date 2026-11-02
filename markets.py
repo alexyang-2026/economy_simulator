@@ -2,7 +2,7 @@ import random
 import time
 import numpy as np
 
-LAMBDA = 1 / 60
+LAMBDA = 1 / 3
 
 STATES = [
     "severe_shortage",
@@ -74,10 +74,47 @@ def schedule_next_market_update():
     return next_update
 
 
-def process_market_updates(next_update):
+def process_market_updates(current_state, next_update):
     while time.monotonic() >= next_update:
-        print("Market update!")
+        current_state = next_market_state(current_state)
+
+        print(f"Market update! New state: {STATES[current_state]}")
+
         next_update += random.expovariate(LAMBDA)
         
-    return next_update
+    return current_state, next_update
 
+
+IRON_EQUILIBRIUM_PRICES = np.array([45, 32, 25, 18, 12])
+
+MEAN_REVERSION_RATE = 0.2
+VOLATILITY_PARAMETER = 0.02
+
+def adjust_prices_from_markov_chain(current_state, current_price, equilibrium_price_vector):
+    """
+    Purpose: Calculate the next commodity price using a Marov-switching log-price AR(1) model.
+
+    Parameters:
+        - current_state (int): the index of the current Markov economic state (an integer between 0-4).
+        - current_price (float): a current commodity price P_t (see LaTeX documentation for full mathematical model).
+        - equilibrium_price_vector (nparray): contains the equilibrium prices for each economic state.
+    
+    Returns the next commodity price P_{t+1}, which is strictly positive under valid inputs.
+
+    For the full equation and mathematical model, it is best to reference LaTeX documentation.
+    """
+    equilibrium_price = equilibrium_price_vector[current_state] # because equilibrium_price_vetor is a 1D numpy vector
+
+    # First check if the inputs are valid, because ln P_t only holds when P_t > 0 and similarly with the equilibrium price
+    if current_price <= 0:
+        raise ValueError("Current price must be strictly positive!")
+
+    if equilibrium_price <= 0:
+        raise ValueError("Equilibrium price must be strictly positive!")
+
+    Z = random.gauss(0, 1)
+
+    log_next_price = np.log(current_price) + (MEAN_REVERSION_RATE * (np.log(equilibrium_price) - np.log(current_price))) + VOLATILITY_PARAMETER * Z
+    next_price = np.exp(log_next_price)
+    
+    return next_price
