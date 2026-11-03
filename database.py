@@ -29,3 +29,31 @@ def connect_db():
     conn = sqlite3.connect(DB_PATH)
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
+
+
+def save_market_state(conn, item_id, current_price, current_state):
+    conn.execute(
+        """
+        INSERT INTO market_state (item_id, current_price, current_state)
+        VALUES (?, ?, ?)
+        ON CONFLICT (item_id)
+        DO UPDATE SET
+            current_price = excluded.current_price,
+            current_state = excluded.current_state
+        """,
+        (item_id, current_price, current_state)
+    )
+
+
+def get_market_state(conn):
+    cursor = conn.execute(
+        "SELECT item_id, current_price, current_state FROM market_state"
+    )
+
+    return {
+        item_id: {
+            "price": price,
+            "state": state
+        }
+        for item_id, price, state in cursor.fetchall()
+    }

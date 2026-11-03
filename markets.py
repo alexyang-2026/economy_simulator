@@ -1,6 +1,11 @@
 import random
 import time
+import json
 import numpy as np
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+MARKETS_PATH = PROJECT_ROOT / "game" / "markets.json"
 
 LAMBDA = 1 / 3
 
@@ -53,51 +58,16 @@ def find_P_steady_state():
 
 
 
-def next_market_state(current_state):
+def adjust_prices_from_markov_chain(current_state, current_price, equilibrium_price_vector, mean_reversion_rate, volatility_parameter):
     """
-    Generate a new market state given the current market state.
-    """
-    probabilities = P[:, current_state]
-    next_state = np.random.choice(len(STATES), p=probabilities)
-
-    return next_state
-
-
-
-
-# Used once to establish the first update deadlin
-def schedule_next_market_update():
-    # Generate the number of seconds until the next market update is due
-    waiting_time = random.expovariate(LAMBDA)
-
-    next_update = time.monotonic() + waiting_time
-    return next_update
-
-
-def process_market_updates(current_state, next_update):
-    while time.monotonic() >= next_update:
-        current_state = next_market_state(current_state)
-
-        print(f"Market update! New state: {STATES[current_state]}")
-
-        next_update += random.expovariate(LAMBDA)
-        
-    return current_state, next_update
-
-
-IRON_EQUILIBRIUM_PRICES = np.array([45, 32, 25, 18, 12])
-
-MEAN_REVERSION_RATE = 0.2
-VOLATILITY_PARAMETER = 0.02
-
-def adjust_prices_from_markov_chain(current_state, current_price, equilibrium_price_vector):
-    """
-    Purpose: Calculate the next commodity price using a Marov-switching log-price AR(1) model.
+    Purpose: Calculate the next commodity price using a Markov-switching log-price AR(1) model.
 
     Parameters:
         - current_state (int): the index of the current Markov economic state (an integer between 0-4).
         - current_price (float): a current commodity price P_t (see LaTeX documentation for full mathematical model).
         - equilibrium_price_vector (nparray): contains the equilibrium prices for each economic state.
+        - mean_reversion_rate (float)
+        - volatility_parameter (float)
     
     Returns the next commodity price P_{t+1}, which is strictly positive under valid inputs.
 
@@ -114,7 +84,109 @@ def adjust_prices_from_markov_chain(current_state, current_price, equilibrium_pr
 
     Z = random.gauss(0, 1)
 
-    log_next_price = np.log(current_price) + (MEAN_REVERSION_RATE * (np.log(equilibrium_price) - np.log(current_price))) + VOLATILITY_PARAMETER * Z
+    log_next_price = np.log(current_price) + (mean_reversion_rate * (np.log(equilibrium_price) - np.log(current_price))) + volatility_parameter * Z
     next_price = np.exp(log_next_price)
     
     return next_price
+
+
+
+def next_market_state(current_state):
+    """
+    Generate a new market state given the current market state.
+    """
+    probabilities = P[:, current_state]
+    next_state = np.random.choice(len(STATES), p=probabilities)
+
+    return next_state
+
+
+
+
+# Used once to establish the first update deadlines for all commodities in markets.json
+def initialize_market_schedule(markets_config):
+    next_updates = {}
+    for commodity, config in markets_config.items():
+        next_updates[commodity] = time.monotonic() + random.expovariate(1 / config["mean_update_interval"])
+
+    return next_updates
+
+def process_market_updates(conn, markets_config, next_updates):
+    for item_id, config in markets_config.items():
+        mean_interval = config["mean_update_interval"]
+
+        while time.monotonic() >= next_updates[item_id]:
+            update_one_market_state(conn, item_id, markets_config)
+
+            next_updates[item_id] += random.expovariate(1 / mean_interval)
+
+    conn.commit()
+
+
+def update_one_market_state(conn, item_id, markets_config):
+    current_price, current_state = conn.execute(
+        """
+        SELECT current_price, current_state
+        FROM market_state
+        WHERE item_id = ?
+        """,
+        (item_id,)
+    ).fetchone()
+
+    next_state = next_market_state(current_state)
+
+    config = markets_config[item_id]
+    equilibrium_prices = config["equilibrium_prices"]
+    alpha = config["mean_reversion_rate"]
+    sigma = config["volatility_parameter"]
+
+    # The parameter current_state of the function takes on the value next_state 
+    # This is because the price responds to the new economic conditions
+    next_price = adjust_prices_from_markov_chain(next_state, current_price, equilibrium_prices, alpha, sigma)
+
+    save_market_state(conn, item_id, next_price, next_state)
+    
+    print(
+        f"{item_id}: ${current_price:.2f} → ${next_price:.2f} "
+        f"| {STATES[current_state]} → {STATES[next_state]}"
+    )
+
+
+
+
+def load_market_data_from_json():
+    with open(MARKETS_PATH, "r", encoding="utf-8") as file:
+        markets_config = json.load(file)
+
+    return markets_config
+
+    
+def initialize_market(markets_config, conn):
+    for item_id, config in markets_config.items():
+        initial_price = config["equilibrium_prices"][2]
+
+        conn.execute(
+            """
+            INSERT INTO market_state (item_id, current_price, current_state)
+            VALUES (?, ?, ?)
+            ON CONFLICT(item_id) DO NOTHING
+            """,
+            (item_id, initial_price, 2)
+        )
+
+    conn.commit()
+
+
+def save_market_state(conn, item_id, current_price, current_state):
+    conn.execute(
+        """
+        INSERT INTO market_state (item_id, current_price, current_state)
+        VALUES (?, ?, ?)
+        ON CONFLICT(item_id)
+        DO UPDATE SET
+            current_price = excluded.current_price,
+            current_state = excluded.current_state
+        """,
+        (item_id, current_price, current_state)
+    )
+

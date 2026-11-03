@@ -13,3 +13,10 @@ CREATE TABLE IF NOT EXISTS inventory (
     PRIMARY KEY (player_id, item_id),
     FOREIGN KEY (player_id) REFERENCES profiles(player_id)
 );
+
+CREATE TABLE IF NOT EXISTS market_state (
+    item_id TEXT PRIMARY KEY,
+    current_price REAL NOT NULL CHECK (current_price > 0),
+    current_state INTEGER NOT NULL
+        CHECK (current_state BETWEEN 0 AND 4)
+);
