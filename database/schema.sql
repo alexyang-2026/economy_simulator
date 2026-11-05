@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS profiles (
     player_id INTEGER PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL,
-    money INTEGER NOT NULL DEFAULT 1000 CHECK (money >= 0)
+    money REAL NOT NULL DEFAULT 1000.0 CHECK(money >= 0)
 );
 
 CREATE TABLE IF NOT EXISTS inventory (

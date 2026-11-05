@@ -145,14 +145,11 @@ def update_one_market_state(conn, item_id, markets_config):
     next_price = adjust_prices_from_markov_chain(next_state, current_price, equilibrium_prices, alpha, sigma)
 
     save_market_state(conn, item_id, next_price, next_state)
-    
+
     print(
         f"{item_id}: ${current_price:.2f} → ${next_price:.2f} "
         f"| {STATES[current_state]} → {STATES[next_state]}"
     )
-
-
-
 
 def load_market_data_from_json():
     with open(MARKETS_PATH, "r", encoding="utf-8") as file:
