@@ -20,3 +20,20 @@ CREATE TABLE IF NOT EXISTS market_state (
     current_state INTEGER NOT NULL
         CHECK (current_state BETWEEN 0 AND 4)
 );
+
+CREATE TABLE IF NOT EXISTS corporation_earnings_history (
+    corporation_id TEXT NOT NULL,
+    start_day INTEGER NOT NULL,
+    end_day INTEGER NOT NULL,
+    profits BLOB NOT NULL,
+    PRIMARY KEY (corporation_id, start_day)
+);
+
+CREATE TABLE IF NOT EXISTS simulation_state (
+    id INTEGER PRIMARY KEY CHECK (id = 1),
+    current_day INTEGER NOT NULL DEFAULT 0
+);
+
+/* Initialize the game day at 0 */
+INSERT OR IGNORE INTO simulation_state (id, current_day)
+VALUES (1, 0);

@@ -1,0 +1,69 @@
+
+{
+  "rpg_manufacturing": {
+    "name": "RPG Manufacturing Co.",
+    "ticker": "RPG",
+    "industry": "tools_and_manufacturing",
+    "products": ["hatchet", "steel_axe", "iron_pickaxe"],
+    "input_resources": ["iron_ingot", "steel", "oak_plank"],
+    "daily_production_capacity": 20000,
+    "daily_quotas": {
+      "hatchet": 2500,
+      "steel_axe": 1500,
+      "iron_pickaxe": 2000
+    }
+  },
+  "econland_materials": {
+    "name": "Econland Materials",
+    "ticker": "ECON",
+    "industry": "mining",
+    "products": ["iron_ore", "copper_ore", "gold_ore", "silver_ore"],
+    "input_resources": [],
+    "daily_production_capacity": 20000,
+    "daily_quotas": {
+      "iron_ore": 2500,
+      "copper_ore": 2000,
+      "gold_ore": 1000,
+      "silver_ore": 1500
+    }
+  },
+  "johns_ingots": {
+    "name": "John's Ingots",
+    "ticker": "JOHN",
+    "industry": "metal_refining",
+    "products": ["iron_ingot", "copper_ingot", "steel"],
+    "input_resources": ["iron_ore", "copper_ore", "coal"],
+    "daily_production_capacity": 20000,
+    "daily_quotas": {
+      "iron_ingot": 2000,
+      "copper_ingot": 1500,
+      "steel": 1000
+    }
+  },
+  "electricity_international": {
+    "name": "Electri-CITY International",
+    "ticker": "ECTY",
+    "industry": "electronics",
+    "products": ["circuit_board", "microchip", "copper_wire"],
+    "input_resources": ["silicon", "copper_ingot", "gold_ingot"],
+    "daily_production_capacity": 20000,
+    "daily_quotas": {
+      "circuit_board": 2000,
+      "microchip": 1500,
+      "copper_wire": 2500
+    }
+  },
+  "tics_robotics": {
+    "name": "Tic's Robotics",
+    "ticker": "TIC",
+    "industry": "robotics",
+    "products": ["electric_motor", "robot", "drone"],
+    "input_resources": ["microchip", "steel", "copper_wire", "battery"],
+    "daily_production_capacity": 15000,
+    "daily_quotas": {
+      "electric_motor": 2500,
+      "robot": 1000,
+      "drone": 1500
+    }
+  }
+}

@@ -404,5 +404,26 @@
     "outputs": {
       "steel_axe": 1
     }
+  },
+
+  "mine_iron": {
+    "name": "Mine Iron Ore",
+    "inputs": {"coal": 2},
+    "outputs": {"iron_ore": 5}
+  },
+  "mine_copper": {
+    "name": "Mine Copper Ore",
+    "inputs": {"coal": 3},
+    "outputs": {"copper_ore": 5}
+  },
+  "mine_gold": {
+    "name": "Mine Gold Ore",
+    "inputs": {"coal": 5},
+    "outputs": {"gold_ore": 3}
+  },
+  "mine_silver": {
+    "name": "Mine Silver Ore",
+    "inputs": {"coal": 4},
+    "outputs": {"silver_ore": 4}
   }
 }

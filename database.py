@@ -57,3 +57,16 @@ def get_market_state(conn):
         }
         for item_id, price, state in cursor.fetchall()
     }
+
+
+def advance_game_day(conn):
+    conn.execute("""
+        UPDATE simulation_state
+        SET current_day = current_day + 1
+        WHERE id = 1
+    """)
+
+def get_current_day(conn):
+    return conn.execute(
+        "SELECT current_day FROM simulation_state WHERE id = 1"
+    ).fetchone()[0]
